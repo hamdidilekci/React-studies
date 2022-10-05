@@ -1,0 +1,23 @@
+{
+  "name": "react-learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hamdidilekci/react-studies.git"
+  },
+  "author": "dilekcihamdi@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hamdidilekci/react-studies/issues"
+  },
+  "homepage": "https://github.com/hamdidilekci/react-studies#readme",
+  "dependencies": {
+    "axios": "^1.0.0"
+  }
+}
