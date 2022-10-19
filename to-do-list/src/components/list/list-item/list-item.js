@@ -9,25 +9,36 @@ function ListItem({ deleteListItem, listItems }) {
 	}
 
 
-	const onCheckboxClick = (i, e) => {
-		document.getElementById(i).checked = !document.getElementById(i).checked;
+	const onCheckboxClick = (i, e, from) => {
+		if (from === 'label') {
+			document.getElementById(i).checked = !document.getElementById(i).checked
+		};
 
-		e.target.style.textDecoration
-			? e.target.style.removeProperty('text-decoration')
-			: e.target.style.setProperty('text-decoration', 'line-through');
+		e.target.parentElement.classList.toggle("completed")
+		e.target.parentElement.classList.toggle("active")
+	}
+
+	const onClickAll = () => {
+		document.querySelectorAll('.active')
+			.forEach(el => {
+				el.classList.add('completed')
+				el.classList.remove('active') 
+			});
+		document.querySelectorAll('.checkbox')
+			.forEach(el => el.checked = true);
 	}
 
 	return (
 		<section className="main" >
-			<button type="button" className="btn btn-warning">
+			<button onClick={onClickAll} type="button" className="btn btn-warning">
 				Mark all as complete
 			</button>
 			<ul className="todo-list">
 				{listItems.map((listItem, i) => (
 					<li key={i} >
-						<div className="view">
-							<input id={i} className="listItemCheckbox" type="checkbox" />
-							<label className='listItemLabel' onClick={(e) => onCheckboxClick(i, e)}>
+						<div className='active view'>
+							<input id={i} onClick={(e) => onCheckboxClick(i, e, 'checkbox')} className='checkbox' type="checkbox" />
+							<label onClick={(e) => onCheckboxClick(i, e, 'label')}>
 								{listItem}
 							</label>
 							<button id={i} onClick={onDelete} className="destroy"></button>
