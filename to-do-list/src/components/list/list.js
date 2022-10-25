@@ -14,10 +14,10 @@ function List() {
             <ListHeader setListItem={setListItems} listItems={listItems}/>
         </header>
         <section>
-            <ListItem deleteListItem={setListItems} listItems={listItems} />
+            <ListItem setListItem={setListItems} listItems={listItems} />
         </section>
         <footer>
-            <ListFooter listItems={listItems}/>
+            <ListFooter setListItem={setListItems} listItems={listItems}/>
         </footer>
     </div>
     )
