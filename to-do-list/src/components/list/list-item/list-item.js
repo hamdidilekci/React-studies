@@ -1,31 +1,25 @@
 import './list-item.css'
 
-function ListItem({ deleteListItem, listItems }) {
+function ListItem({ setListItem, listItems }) {
 
 	const onDelete = (e) => {
-		// eslint-disable-next-line eqeqeq
-		const updatedListItems = listItems.filter((listItem, index) => index != e.target.id);
-		deleteListItem(updatedListItems);
+		 // eslint-disable-next-line eqeqeq
+		setListItem(prevState => prevState.filter((el,index)=> index != e.target.id));
 	}
 
-
-	const onCheckboxClick = (i, e, from) => {
-		if (from === 'label') {
-			document.getElementById(i).checked = !document.getElementById(i).checked
-		};
-
-		e.target.parentElement.classList.toggle("completed")
-		e.target.parentElement.classList.toggle("active")
+	const onItemClick = (i, e, from) => {
+		setListItem(prevState => prevState.map((el, index) => {
+			if (index === i) {
+				return {...el, isCompleted:!el.isCompleted}
+			}
+			return el;
+		}));
 	}
 
 	const onClickAll = () => {
-		document.querySelectorAll('.active')
-			.forEach(el => {
-				el.classList.add('completed')
-				el.classList.remove('active') 
-			});
-		document.querySelectorAll('.checkbox')
-			.forEach(el => el.checked = true);
+		setListItem(prevState => prevState.map((el, index) => {
+			return {...el, isCompleted: true}
+		}));
 	}
 
 	return (
@@ -36,10 +30,9 @@ function ListItem({ deleteListItem, listItems }) {
 			<ul className="todo-list">
 				{listItems.map((listItem, i) => (
 					<li key={i} >
-						<div className='active view'>
-							<input id={i} onClick={(e) => onCheckboxClick(i, e, 'checkbox')} className='checkbox' type="checkbox" />
-							<label onClick={(e) => onCheckboxClick(i, e, 'label')}>
-								{listItem}
+						<div>
+							<label className={listItem.isCompleted ? 'view completed' : 'view'} onClick={(e) => onItemClick(i, e, 'label')}>
+								{listItem.name}
 							</label>
 							<button id={i} onClick={onDelete} className="destroy"></button>
 						</div>
