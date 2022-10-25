@@ -15,7 +15,9 @@ function ListHeader({ setListItem, listItems }) {
 		e.preventDefault();
 		if (input === "") return false;
 
-		setListItem([...listItems, input]);
+		const value = {name:input, isCompleted: false}
+
+		setListItem([...listItems, value]);
 		setInput(initialInputValue);
 	}
 
