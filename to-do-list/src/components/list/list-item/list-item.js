@@ -1,4 +1,3 @@
-import './list-item.css'
 
 function ListItem({ setListItem, listItems }) {
 
@@ -16,22 +15,13 @@ function ListItem({ setListItem, listItems }) {
 		}));
 	}
 
-	const onClickAll = () => {
-		setListItem(prevState => prevState.map((el, index) => {
-			return {...el, isCompleted: true}
-		}));
-	}
-
 	return (
 		<section className="main" >
-			<button onClick={onClickAll} type="button" className="btn btn-warning">
-				Mark all as complete
-			</button>
 			<ul className="todo-list">
 				{listItems.map((listItem, i) => (
 					<li key={i} >
 						{console.log(listItem.isVisible)}
-						<div className={(listItem.isCompleted ? 'view completed' : 'view') + ' ' + (listItem.isVisible ? '' : 'invisible')}>
+						<div className={(listItem.isCompleted ? 'view completed' : 'view') + ' ' + (listItem.isVisible ? '' : 'hidden')}>
 							<label onClick={(e) => onItemClick(i, e, 'label')}>
 								{listItem.name}
 							</label>
