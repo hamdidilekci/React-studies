@@ -1,35 +1,31 @@
 import React from 'react'
 
+import './list-footer.css'
+
 function ListFooter({ setListItem, listItems }) {
 
 	const showActive = () => {
-		// document.querySelectorAll('.view')
-		// 	.forEach(el => {
-		// 		if (el.className.includes('active')) {
-		// 		el.classList.remove('invisible')
-		// 		} else {
-		// 			document.querySelectorAll('.completed').forEach(el => el.classList.add('invisible'));
-		// 		}
-		// 	});
+		setListItem(prevState => prevState.map((el) => {
+			el.isCompleted ?  el.isVisible = false :  el.isVisible = true
+			return el
+		}));
 	}
 
 	const showAll = () => {
-		// document.querySelectorAll('.invisible').forEach(el => el.classList.remove('invisible'));
+		setListItem(prevState => prevState.map((el) => {
+			el.isVisible = true
+			return el
+		}));
 	}
 
 	const showCompleted = () => {
-		// document.querySelectorAll('.view')
-		// 	.forEach(el => {
-		// 		if (el.className.includes('active')) {
-		// 			el.classList.add('invisible')
-		// 		} else if (el.className.includes ('completed')) {
-		// 			el.classList.remove('invisible')
-		// 		}
-		// 	});
+		setListItem(prevState => prevState.map((el) => {
+			el.isCompleted ?  el.isVisible = true :  el.isVisible = false
+			return el
+		}));
 	}
 
-	const onDeleteAllCompleted = (e) => {
-
+	const onDeleteAllCompleted = () => {
 		setListItem(prevState => prevState.filter(el => !el.isCompleted));
 	}
 

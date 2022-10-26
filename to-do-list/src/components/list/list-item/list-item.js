@@ -30,8 +30,9 @@ function ListItem({ setListItem, listItems }) {
 			<ul className="todo-list">
 				{listItems.map((listItem, i) => (
 					<li key={i} >
-						<div>
-							<label className={listItem.isCompleted ? 'view completed' : 'view'} onClick={(e) => onItemClick(i, e, 'label')}>
+						{console.log(listItem.isVisible)}
+						<div className={(listItem.isCompleted ? 'view completed' : 'view') + ' ' + (listItem.isVisible ? '' : 'invisible')}>
+							<label onClick={(e) => onItemClick(i, e, 'label')}>
 								{listItem.name}
 							</label>
 							<button id={i} onClick={onDelete} className="destroy"></button>

@@ -15,7 +15,7 @@ function ListHeader({ setListItem, listItems }) {
 		e.preventDefault();
 		if (input === "") return false;
 
-		const value = {name:input, isCompleted: false}
+		const value = {name:input, isCompleted: false, isVisible: true}
 
 		setListItem([...listItems, value]);
 		setInput(initialInputValue);
