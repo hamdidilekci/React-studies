@@ -1,27 +1,39 @@
-import React from 'react'
-
-import './list-footer.css'
+import { useState } from 'react'
 
 function ListFooter({ setListItem, listItems }) {
 
-	const showActive = () => {
-		setListItem(prevState => prevState.map((el) => {
-			el.isCompleted ?  el.isVisible = false :  el.isVisible = true
-			return el
-		}));
-	}
-
+	const [selected, setSelected] = useState({id:'all'});
+	
 	const showAll = () => {
 		setListItem(prevState => prevState.map((el) => {
 			el.isVisible = true
 			return el
 		}));
+
+		setSelected({id: 'all'});
+	}
+	
+	const showActive = () => {
+		setListItem(prevState => prevState.map((el) => {
+			el.isCompleted ? el.isVisible = false : el.isVisible = true
+			return el
+		}));
+
+		setSelected({id: 'active'});
 	}
 
 	const showCompleted = () => {
 		setListItem(prevState => prevState.map((el) => {
-			el.isCompleted ?  el.isVisible = true :  el.isVisible = false
+			el.isCompleted ? el.isVisible = true : el.isVisible = false
 			return el
+		}));
+
+		setSelected({id: 'completed'});
+	}
+
+	const onClickAll = () => {
+		setListItem(prevState => prevState.map((el, index) => {
+			return {...el, isCompleted: true}
 		}));
 	}
 
@@ -38,19 +50,21 @@ function ListFooter({ setListItem, listItems }) {
 
 			<ul className="filters">
 				<li>
-					<button className='btn btn-primary' onClick={showAll}>All</button>
+					<a className={selected.id === 'all' ? 'selected' : ''} onClick={showAll} href="#/" >All</a>
 				</li>
 				<li>
-					<button className='btn btn-success' onClick={showActive}>Active</button>
+					<a className={selected.id === 'active' ? 'selected' : ''} onClick={showActive} href="#/" >Active</a>
 				</li>
 				<li>
-					<button className='btn btn-dark' onClick={showCompleted}>Completed</button>
+					<a className={selected.id === 'completed' ? 'selected' : ''} onClick={showCompleted} href="#/" >Completed</a>
+				</li>
+				<li>
+					<a onClick={onClickAll} href="#/">Mark all as complete</a>
+				</li>
+				<li>
+					<a onClick={onDeleteAllCompleted} href="#/">Clear completed</a>
 				</li>
 			</ul>
-
-			<button onClick={onDeleteAllCompleted} className="clear-completed">
-				Clear completed
-			</button>
 		</footer>
 	)
 }
