@@ -1,11 +1,3 @@
 # To-Do-App with ReactJS
 
-## In This project i use react's 
-
-### `functional components`
-
-### `props`
-
-### `states`
-
-## And i use CSS to style project.
+## In This project I learned about how to create `functional components` and pass data between different componenets using `props` and `states`. And I used `CSS` to style project.
