@@ -1,0 +1,27 @@
+.App {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.active {
+  border: 1px solid khaki ;
+  border-radius: 8%;
+  background-color: rgb(224, 171, 196);
+  color: black;
+  padding: 1px;
+}
+
+.next {
+  font-style: oblique;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: indigo;
+}
+
+.next:hover {
+  font-style: oblique;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: red;
+}
