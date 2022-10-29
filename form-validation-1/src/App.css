@@ -1,0 +1,32 @@
+.App {
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: larger;
+}
+
+button {
+  height: 30px;
+  background-color: red;
+}
+
+button:hover {
+  background-color: aqua;
+}
+
+input {
+  border: 2px solid;
+  color: rgb(189, 94, 211);
+}
+
+li {
+  color: brown;
+  list-style-type: none;
+  text-align: left;
+}
+
+.error {
+  color: red;
+}
