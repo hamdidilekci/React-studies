@@ -1,16 +1,24 @@
+import '../App.css'
 import { useWeather } from '../Context/WeatherContext'
 
 function Forecasts() {
     const weather = useWeather();
 
-    let day = JSON.stringify(weather?.daily?.time);
-    let weatherCode = JSON.stringify(weather?.daily?.weathercode);
-    let temperatureMax = JSON.stringify(weather?.daily?.temperature_2m_max);
-    let temperatureMin = JSON.stringify(weather?.daily?.temperature_2m_min);
+    function getDayName(dateStr, locale)
+    {
+        let date = new Date(dateStr);
+        return date.toLocaleDateString(locale, { weekday: 'long' });        
+    }
+    let dateStr = weather?.daily?.time[0];
+    let day = getDayName(dateStr, "en-US")
+
+    let weatherCode = JSON.stringify(weather?.daily?.weathercode[0]);
+    let temperatureMax = JSON.stringify(weather?.daily?.temperature_2m_max[0]);
+    let temperatureMin = JSON.stringify(weather?.daily?.temperature_2m_min[0]);
 
     return (
         <div>
-            <div>
+            <div className='list'>
                 <li>
                     {day}
                 </li>
