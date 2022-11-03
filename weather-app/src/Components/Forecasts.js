@@ -3,37 +3,53 @@ import { useWeather } from '../Context/WeatherContext'
 
 function Forecasts() {
     const weather = useWeather();
+    console.log(weather);
 
-    function getDayName(dateStr, locale)
-    {
-        let date = new Date(dateStr);
-        return date.toLocaleDateString(locale, { weekday: 'long' });        
-    }
-    let dateStr = weather?.daily?.time[0];
-    let day = getDayName(dateStr, "en-US")
+    let day;
+    let weatherCode;
+    let temperatureMax;
+    let temperatureMin;
 
-    let weatherCode = JSON.stringify(weather?.daily?.weathercode[0]);
-    let temperatureMax = JSON.stringify(weather?.daily?.temperature_2m_max[0]);
-    let temperatureMin = JSON.stringify(weather?.daily?.temperature_2m_min[0]);
+    if (weather.state !== 'loading...') {
+        console.log('first if', weather);
+        let dateStr = weather.time[0];
 
-    return (
-        <div>
-            <div className='list'>
-                <li>
-                    {day}
-                </li>
-                <li>
-                    {weatherCode}
-                </li>
-                <li>
-                    {temperatureMax}
-                </li>
-                <li>
-                    {temperatureMin}
-                </li>
+        function getDayName(dateStr, locale) {
+            let date = new Date(dateStr);
+            return date.toLocaleDateString(locale, { weekday: 'long' });
+        }
+
+        day = getDayName(dateStr, "en-US")
+
+        weatherCode = JSON.stringify(weather.weathercode[0]);
+        temperatureMax = JSON.stringify(weather.temperature_2m_max[0]);
+        temperatureMin = JSON.stringify(weather.temperature_2m_min[0]);
+
+        return (
+            <div>
+                <div className='list'>
+                    <span>
+                        {day}
+                    </span>
+                    <br />
+                    <span>
+                        {weatherCode}
+                    </span>
+                    <div>
+                        <span>
+                            {`${temperatureMax} °C`}
+                        </span>
+                        <span>
+                            {`${temperatureMin} °C`}
+                        </span>
+                    </div>
+                </div>
             </div>
-        </div>
-    )
+        )
+    }
+    else {
+        return (<div>LOADING...</div>)
+    }
 }
 
 export default Forecasts
