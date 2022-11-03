@@ -3,7 +3,6 @@ import { useWeather } from '../Context/WeatherContext'
 
 function Forecasts() {
     const weather = useWeather();
-    console.log(weather);
 
     let day;
     let weatherCode;
@@ -11,7 +10,7 @@ function Forecasts() {
     let temperatureMin;
 
     if (weather.state !== 'loading...') {
-        console.log('first if', weather);
+        
         let dateStr = weather.time[0];
 
         function getDayName(dateStr, locale) {
@@ -20,7 +19,6 @@ function Forecasts() {
         }
 
         day = getDayName(dateStr, "en-US")
-
         weatherCode = JSON.stringify(weather.weathercode[0]);
         temperatureMax = JSON.stringify(weather.temperature_2m_max[0]);
         temperatureMin = JSON.stringify(weather.temperature_2m_min[0]);
