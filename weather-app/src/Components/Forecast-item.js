@@ -20,14 +20,14 @@ function ForecastItem({time, weatherCode, temperature2mMax, temperature2mMin}) {
     return (
         <span className='m-2 p-0' style={{minWidth: '105px'}}>
             <p className='day-name'>{day}</p>
-            <div className="card-img-top" style={{minHeight: '100px'}}>
+            <div className="card-img-top" style={{minHeight: '105px'}}>
                 {symbol}
             </div>
             <div className="card-body">
                 <p className="card-text">
-                    <strong><span>Max {`${temperatureMax}°`}</span></strong>
+                    <span>Max: {`${temperatureMax}°`}</span>
                     <br />
-                    <strong><span>Min {`${temperatureMin}°`}</span></strong>
+                    <span>Min: {`${temperatureMin}°`}</span>
                 </p>
             </div>
         </span>
