@@ -18,8 +18,8 @@ function ForecastItem({time, weatherCode, temperature2mMax, temperature2mMin}) {
     const temperatureMin = JSON.stringify(temperature2mMin);
 
     return (
-        <span className='m-2 p-0' style={{minWidth: '100px'}}>
-            <p><strong>{day}</strong></p>
+        <span className='m-2 p-0' style={{minWidth: '105px'}}>
+            <p className='day-name'>{day}</p>
             <div className="card-img-top" style={{minHeight: '100px'}}>
                 {symbol}
             </div>

@@ -25,7 +25,7 @@ function Forecasts() {
         )
     }
     else {
-        return (<div>LOADING...</div>)
+        return (<div className='loading'>LOADING...</div>)
     }
 }
 
