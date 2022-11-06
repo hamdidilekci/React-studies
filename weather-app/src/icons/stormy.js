@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function CloudyLightning() {
+export default function Stormy() {
     return (
         <div class="weatherIcon">
             <div class="tstorms">
