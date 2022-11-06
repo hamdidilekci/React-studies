@@ -1,6 +1,7 @@
 import './App.css';
 
-import Container from './Components/Container';
+import Forecasts from './Components/Forecasts';
+import Input from './Components/Input';
 import {WeatherProvider} from './Context/WeatherContext';
 
 
@@ -8,7 +9,10 @@ function App() {
   return (
     <div className="App">
       <WeatherProvider>
-        <Container/>
+        <div className='container'>
+          <Input/>
+          <Forecasts/>
+        </div>
       </WeatherProvider>
     </div>
   );
