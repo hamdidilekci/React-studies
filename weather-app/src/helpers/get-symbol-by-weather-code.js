@@ -1,11 +1,13 @@
 // icons
-import Stormy from '../icons/stormy';
-import CloudySun from '../icons/cloudy-sun';
-import Cloudy from '../icons/cloudy';
-import Rainy from '../icons/rainy';
-import Snowy from '../icons/snowy';
-import Sunny from '../icons/sunny';
-import Foggy from '../icons/foggy';
+import {
+    Stormy,
+    CloudySun, 
+    Cloudy,
+    Rainy,
+    Snowy,
+    Sunny,
+    Foggy,
+} from '../icons';
 
 const getSymbolByWeatherCode = (weatherCode) => {
     const symbols = {
