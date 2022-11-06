@@ -1,5 +1,5 @@
 import '../App.css'
-import { useWeather } from '../context/weatherContext'
+import { useWeather } from '../tempContext/weatherContext'
 
 import ForecastItem from './forecast-item';
 
