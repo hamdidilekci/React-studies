@@ -14,7 +14,6 @@
  }
 
 .App {
-  text-align: center;
   background: linear-gradient(to bottom, #57c1eb 0%,#246fa8 100%);
   min-height: 720px;
 }
@@ -23,5 +22,4 @@
   font-size: 40px;
   color : darkblue;
   margin-top :40px;
-  background-color: darkgrey;
 }

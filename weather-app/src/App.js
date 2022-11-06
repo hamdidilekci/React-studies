@@ -1,8 +1,8 @@
 import './App.css';
 
-import Forecasts from './Components/Forecasts';
-import Input from './Components/Input';
-import {WeatherProvider} from './Context/WeatherContext';
+import Forecasts from './components/forecasts';
+import Input from './components/select-location';
+import {WeatherProvider} from './context/weatherContext';
 
 
 function App() {
