@@ -1,7 +1,7 @@
 import '../App.css'
-import { useWeather } from '../context/WeatherContext'
+import { useWeather } from '../context/weatherContext'
 
-import ForecastItem from './Forecast-item';
+import ForecastItem from './forecast-item';
 
 function Forecasts() {
     const weather = useWeather();

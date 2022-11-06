@@ -26,7 +26,7 @@ function Input() {
                             <input type="text" placeholder="latitude" className="form-control" value={location.latitude.toFixed(2)}/>
                             <input type="text" placeholder="longitude" className="form-control" value={location.longitude.toFixed(2)}/>
                             <button onClick={getLocation} className="input-group-text">O</button>
-                            <button className="input-group-text">Enter</button>
+                            <button type="submit" className="input-group-text">Enter</button>
                         </div>
                     </div>  
                 </div>
