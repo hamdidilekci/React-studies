@@ -3,15 +3,13 @@ import React from 'react'
 import '../App.css'
 
 import getSymbolByWeatherCode from '../helpers/get-symbol-by-weather-code'
+import getDayName from '../helpers/get-day-name'
 
 function ForecastItem({time, weatherCode, temperature2mMax, temperature2mMin}) {
 
     const symbol = getSymbolByWeatherCode(weatherCode);
 
-    function getDayName(time, locale) {
-        let date = new Date(time);
-        return date.toLocaleDateString(locale, { weekday: 'long' });
-    };
+    
     const day = getDayName(time, "en-US");
 
     const temperatureMax = JSON.stringify(temperature2mMax);
