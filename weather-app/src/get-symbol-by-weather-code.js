@@ -1,11 +1,11 @@
 // icons
-import CloudyLightning from './svg/Cloudy-lightning';
-import CloudySun from './svg/Cloudy-sun';
-import Cloudy from './svg/Cloudy';
-import Rainy from './svg/Rainy';
-import Snowy from './svg/Snowy';
-import Sunny from './svg/Sunny';
-import Foggy from './svg/Foggy';
+import Stormy from './icons/stormy';
+import CloudySun from './icons/cloudy-sun';
+import Cloudy from './icons/cloudy';
+import Rainy from './icons/rainy';
+import Snowy from './icons/snowy';
+import Sunny from './icons/sunny';
+import Foggy from './icons/foggy';
 
 const getSymbolByWeatherCode = (weatherCode) => {
     const symbols = {
@@ -15,12 +15,12 @@ const getSymbolByWeatherCode = (weatherCode) => {
         foggy: <Foggy />,
         cloudy: <Cloudy />,
         cloudySun: <CloudySun />,
-        cloudyLightning: <CloudyLightning />
+        stormy: <Stormy />
     };
     
     
     const codes = {
-        cloudyLightning: [95, 96, 99],
+        stormy: [95, 96, 99],
         snowy: [71, 73, 75, 77, 85, 86],
         rainy: [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
         foggy: [45, 48],
