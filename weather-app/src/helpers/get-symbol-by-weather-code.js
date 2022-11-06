@@ -1,33 +1,33 @@
 // icons
 import {
-    Stormy,
-    CloudySun, 
     Cloudy,
+    CloudySun, 
+    Foggy,
     Rainy,
     Snowy,
+    Stormy,
     Sunny,
-    Foggy,
 } from '../icons';
 
 const getSymbolByWeatherCode = (weatherCode) => {
     const symbols = {
-        sunny: <Sunny />,
-        snowy: <Snowy />,
-        rainy: <Rainy />,
-        foggy: <Foggy />,
         cloudy: <Cloudy />,
         cloudySun: <CloudySun />,
-        stormy: <Stormy />
+        foggy: <Foggy />,
+        rainy: <Rainy />,
+        snowy: <Snowy />,
+        stormy: <Stormy />,
+        sunny: <Sunny />
     };
     
     
     const codes = {
-        stormy: [95, 96, 99],
-        snowy: [71, 73, 75, 77, 85, 86],
-        rainy: [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
-        foggy: [45, 48],
         cloudy: [3],
         cloudySun: [2],
+        foggy: [45, 48],
+        rainy: [51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81, 82],
+        snowy: [71, 73, 75, 77, 85, 86],
+        stormy: [95, 96, 99],
         sunny: [0, 1],
     };
     
