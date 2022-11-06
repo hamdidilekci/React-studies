@@ -22,11 +22,11 @@ function Input() {
             {
                 <div className="input-group">
                     <div className='mb-2'>
-                        <div class="input-group">
-                            <input type="text" placeholder="latitude" class="form-control" value={location.latitude.toFixed(2)}/>
-                            <input type="text" placeholder="longitude" class="form-control" value={location.longitude.toFixed(2)}/>
-                            <button onClick={getLocation} class="input-group-text">O</button>
-                            <button class="input-group-text">Enter</button>
+                        <div className="input-group">
+                            <input type="text" placeholder="latitude" className="form-control" value={location.latitude.toFixed(2)}/>
+                            <input type="text" placeholder="longitude" className="form-control" value={location.longitude.toFixed(2)}/>
+                            <button onClick={getLocation} className="input-group-text">O</button>
+                            <button className="input-group-text">Enter</button>
                         </div>
                     </div>  
                 </div>

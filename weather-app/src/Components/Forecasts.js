@@ -5,6 +5,7 @@ import ForecastItem from './Forecast-item';
 
 function Forecasts() {
     const weather = useWeather();
+    console.log(weather);
 
     if (weather.state !== 'loading...') {
         return (

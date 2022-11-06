@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function CloudySun() {
     return (
-        <div class="weatherIcon">
-            <div class="cloudysun">
-                <div class="inner"></div>
+        <div className="weatherIcon">
+            <div className="cloudysun">
+                <div className="inner"></div>
             </div>
         </div>
     )

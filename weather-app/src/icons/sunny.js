@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Sunny() {
     return (
-        <div class="weatherIcon">
-            <div class="sunny">
-                <div class="inner"></div>
+        <div className="weatherIcon">
+            <div className="sunny">
+                <div className="inner"></div>
             </div>
         </div>
     )
