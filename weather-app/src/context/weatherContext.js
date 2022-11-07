@@ -5,7 +5,7 @@ const WeatherContext = createContext();
 
 export const WeatherProvider = ({children}) => {
     const [location, setLocation] = useState({latitude : 40.99, longitude: 20.99});
-    const [currentLocation, setCurrentLocation] = useState({latitude : 40.99, longitude: 20.99});
+
     const [weather, setWeather] = useState({state : 'loading...'});
 
     useEffect(() => {
@@ -17,7 +17,7 @@ export const WeatherProvider = ({children}) => {
     },[location?.latitude, location?.longitude]);
 
     return (
-        <WeatherContext.Provider value={ { weather, setLocation, currentLocation, setCurrentLocation } }>{children}</WeatherContext.Provider>
+        <WeatherContext.Provider value={ { weather, location, setLocation } }>{children}</WeatherContext.Provider>
     );
 }
 

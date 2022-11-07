@@ -1,25 +1,28 @@
 // Hooks
-import useGeolocation from "react-hook-geolocation";
+import useGeolocation from 'react-hook-geolocation';
 
-import {useWeather} from '../context/weatherContext'
+import { useWeather } from '../context/weatherContext';
+
+import { useState } from 'react';
 
 function SelectLocation() {
-    const { setLocation, currentLocation, setCurrentLocation } = useWeather();
+    const { location, setLocation } = useWeather();
+    const [currentLocation, setCurrentLocation] = useState({ latitude: location.latitude, longitude: location.longitude });
 
     const geolocation = useGeolocation();
     const enterLocation = () => {
-        setLocation( {
+        setLocation({
             latitude: currentLocation.latitude,
             longitude: currentLocation.longitude
-        } )
-    }
-    
+        });
+    };
+
     const updateInput = () => {
-        setCurrentLocation( {
+        setCurrentLocation({
             latitude: geolocation.latitude,
             longitude: geolocation.longitude
-        } )
-    }
+        });
+    };
 
     return !geolocation.error ? (
         <div>
@@ -32,7 +35,7 @@ function SelectLocation() {
                             <button onClick={updateInput} className="input-group-text">O</button>
                             <button onClick={enterLocation} type="submit" className="input-group-text">Enter</button>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             }
         </div>
