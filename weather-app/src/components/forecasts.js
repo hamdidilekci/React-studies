@@ -4,8 +4,7 @@ import { useWeather } from '../context/weatherContext'
 import ForecastItem from './forecast-item';
 
 function Forecasts() {
-    const weather = useWeather();
-    console.log(weather);
+    const {weather} = useWeather();
 
     if (weather.state !== 'loading...') {
         return (
