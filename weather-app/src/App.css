@@ -4,17 +4,17 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  min-width: 1100px;
  }
 
  .elements {
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
-   background: linear-gradient(to bottom, #8dd0e7 0%,#387fa5 100%);
  }
 
 .App {
-  background: linear-gradient(to bottom, #57c1eb 0%,#246fa8 100%);
+  background: linear-gradient(to bottom, #2a3131 0%,#2c4252 100%);
   min-height: 720px;
 }
 
@@ -22,4 +22,31 @@
   font-size: 40px;
   color : darkblue;
   margin-top :40px;
+}
+
+.weather-card {
+  padding: 3rem;
+  
+}
+
+.today-card {
+  background-image: url(components/today-bg.jpg);
+  background-size: cover;
+  color: #16537e;
+  
+}
+
+.today-card > h1 {
+  font-weight: bold !important;
+}
+
+.week-card {
+  background: #16537e;
+  background: linear-gradient(90deg, #16537e 0%, hsla(211, 63%, 48%, 1) 100%);
+  background: -moz-linear-gradient(90deg, #16537e 0%, hsla(211, 63%, 48%, 1) 100%);
+  background: -webkit-linear-gradient(90deg, #16537e 0%, hsla(211, 63%, 48%, 1) 100%);
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#294B69", endColorstr="#2D77C6", GradientType=1 );
+  color: whitesmoke;
+  font-weight: bolder;
+  font-family: 'Copperplate',monospace;
 }
