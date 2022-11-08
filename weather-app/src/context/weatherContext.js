@@ -10,11 +10,11 @@ export const WeatherProvider = ({children}) => {
 
     useEffect(() => {
         async function getWeather() {
-            await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${location?.latitude}&longitude=${location?.longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min&current_weather=true&timezone=auto`)
+            await axios.get(`https://api.open-meteo.com/v1/forecast?latitude=${location.latitude}&longitude=${location.longitude}&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,windspeed_10m_max&timezone=auto`)
             .then(res => setWeather(res.data.daily)) 
         }
         getWeather()
-    },[location?.latitude, location?.longitude]);
+    },[location.latitude, location.longitude]);
 
     return (
         <WeatherContext.Provider value={ { weather, location, setLocation } }>{children}</WeatherContext.Provider>
