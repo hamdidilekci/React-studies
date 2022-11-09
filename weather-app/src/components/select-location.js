@@ -21,10 +21,10 @@ function SelectLocation() {
     
     const handleInputChange = (e) => {
         const name = e.target.name;
-        const value = e.target.value;
+        const value = parseFloat(e.target.value);
 
         let newLocation = {...currentLocation}
-        newLocation[name] = +value
+        newLocation[name] = value;
         
         setCurrentLocation(newLocation);
     };
@@ -43,18 +43,22 @@ function SelectLocation() {
                     <div className='mb-2'>
                         <div className="input-group">
                             <input 
-                                value={currentLocation?.latitude?.toFixed(2)}
+                                value={currentLocation?.latitude}
                                 onChange={ handleInputChange } 
                                 name='latitude'
-                                type="text" 
+                                type="number"
+                                step='0.01'
+                                min='0' 
                                 placeholder="latitude" 
                                 className="form-control" 
                             />
                             <input 
-                                value={currentLocation?.longitude?.toFixed(2)}
+                                value={currentLocation?.longitude}
                                 onChange={ handleInputChange } 
                                 name='longitude'
-                                type="text" 
+                                type="number"
+                                step='0.01'
+                                min='0' 
                                 placeholder="longitude" 
                                 className="form-control" 
                             />
