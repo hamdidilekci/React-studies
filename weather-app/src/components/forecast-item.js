@@ -13,21 +13,20 @@ function ForecastItem({time, weatherCode, temperature2mMax, temperature2mMin}) {
 
     const temperatureMax = JSON.stringify(temperature2mMax);
     const temperatureMin = JSON.stringify(temperature2mMin);
+    const averageTemp = (parseInt( temperatureMax + temperatureMin )/2).toFixed()
 
     return (
-        <span style={{minWidth: '105px'}}>
-            <p className='day-name'>{day}</p>
-            <div className="card-img-top" style={{minHeight: '105px'}}>
+        <div>
+            <div className="card-img-top d-flex justify-content-center">
                 {symbol}
             </div>
             <div className="card-body">
-                <p className="card-text">
-                    <span>Max: {`${temperatureMax}°`}</span>
-                    <br />
-                    <span>Min: {`${temperatureMin}°`}</span>
-                </p>
+                <span className='day-name'>{day}</span>
+                <span className="card-text d-flex justify-content-center fw-bold">
+                    {`${averageTemp}°`}
+                </span>
             </div>
-        </span>
+        </div>
     )
 }
 export default ForecastItem;
