@@ -7,13 +7,11 @@ import getDayName from '../helpers/get-day-name'
 
 function ForecastItem({time, weatherCode, temperature2mMax, temperature2mMin}) {
 
-    const symbol = getSymbolByWeatherCode(weatherCode);
+    const [symbol] = getSymbolByWeatherCode(weatherCode);
 
     const day = getDayName(time, "en-US");
 
-    const temperatureMax = JSON.stringify(temperature2mMax);
-    const temperatureMin = JSON.stringify(temperature2mMin);
-    const averageTemp = (parseInt( temperatureMax + temperatureMin )/2).toFixed()
+    const averageTemp = (parseInt( temperature2mMax + temperature2mMax )/2).toFixed()
 
     return (
         <div>
