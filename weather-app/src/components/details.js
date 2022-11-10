@@ -5,9 +5,6 @@ import getLocaleHours from '../helpers/get-locale-hours-minutes';
 import '../App.css'
 
 function Details({ temperature2mMax, temperature2mMin, sunrise, sunset, windspeed10mMax }) {
-    
-    const temperatureMax = JSON.stringify(temperature2mMax);
-    const temperatureMin = JSON.stringify(temperature2mMin);
 
     let sunRise = getLocaleHours(sunrise, "en-US");
     let sunSet = getLocaleHours(sunset, "en-US");
@@ -15,22 +12,22 @@ function Details({ temperature2mMax, temperature2mMin, sunrise, sunset, windspee
     const maxWindSpeed = (windspeed10mMax).toFixed()
 
     return (
-        <div className='details'>
+        <div>
             <h4>MAX TEMP
-                <span className='float-end'>{temperatureMax}</span>
+                <h5 className='float-end'>{temperature2mMax}°C</h5>
             </h4>
-            <h4>MİN TEMP
-                <span className='float-end'>{temperatureMin}</span>
+            <h4>MIN TEMP
+                <h5 className='float-end'>{temperature2mMin}°C</h5>
             </h4>
-            <h4>SUNRİSE
-                <span className='float-end'>{sunRise}
-                </span>
+            <h4>SUNRISE
+                <h5 className='float-end'>{sunRise}
+                </h5>
             </h4>
             <h4>SUNSET
-                <span className='float-end'>{sunSet}</span>
+                <h5 className='float-end'>{sunSet}</h5>
             </h4>
-            <h4>MAX WİND-SPEED
-                <span className='float-end'>{maxWindSpeed}</span>
+            <h4>MAX WIND-SPEED
+                <h5 className='float-end'>{maxWindSpeed} km/h</h5>
             </h4>
         </div>
     )
