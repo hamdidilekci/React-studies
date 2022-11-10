@@ -1,6 +1,8 @@
 const getDayName = (time, locale) => {
     let date = new Date(time);
-    return date.toLocaleDateString(locale, { weekday: 'short' });
+    let longDay = date.toLocaleDateString(locale, { weekday: 'long' });
+    let shortDay = date.toLocaleDateString(locale, { weekday: 'short' });
+    return {longDay, shortDay}
 };
 
 export default getDayName;
