@@ -178,8 +178,8 @@
 .rainy:before, .rainy > .inner:before {
 	border-left: 0.2em dashed #cccccc;
 	border-right: 0.2em dashed #cccccc;
-	bottom: 0;
-	height: 60%;
+	bottom: -5px;
+	height: 30%;
 	transform: skew(-20deg);
 	width: 13%;
 }
@@ -196,13 +196,13 @@
 .rainy > .inner:after {
 	height: 63%;
 	left: 0;
-	top: 0;
+	top: 3px;
 	width: 70%;
 }
 .rainy:after {
 	height: 50%;
 	right: 0;
-	top: 13%;
+	top: 25%;
 	width: 55%;
 }
 
