@@ -1,29 +1,36 @@
 import React from 'react'
 
 import '../App.css'
-
+//helpers
 import getDayName from '../helpers/get-day-name'
-import getSymbolByWeatherCode from '../helpers/get-symbol-by-weather-code'
+import getDayOfMonth from '../helpers/get-day-of-month';
+import getSymbolByWeatherCode from '../helpers/get-icon-by-weather-code'
 
 function CurrentDay({ time, weatherCode, temperature2mMax, temperature2mMin }) {
 
+    const { longDay } = getDayName(time, "en-US");
 
-    const symbol = getSymbolByWeatherCode(weatherCode);
-    const day = getDayName(time, "en-US");
+    const dayOfMonth = getDayOfMonth(time, "en-US");
 
-    const temperatureMax = JSON.stringify(temperature2mMax);
-    const temperatureMin = JSON.stringify(temperature2mMin);
-    const averageTemp = (parseInt(temperatureMax + temperatureMin) / 2).toFixed()
+    const averageTemp = (parseInt(temperature2mMax + temperature2mMin) / 2).toFixed();
+
+    const { label } = getSymbolByWeatherCode(weatherCode);
 
     return (
-        <div>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-around',
+            height: '100%',
+            marginLeft: '-30px',
+        }}>
             <div className='flex-fill me-auto mt-3'>
-                <h1>{day}</h1>
-                <h4>{day}</h4>
+                <h1 className='fw-bold'>{longDay}</h1>
+                <h4>{dayOfMonth}th</h4>
             </div>
             <div className='flex-end me-auto mb-3'>
-                <h1>{`${averageTemp}°C`}</h1>
-                <h4>{symbol}</h4>
+                <p className='fw-bold fs-1 mb-0'>{`${averageTemp}°C`}</p>
+                <h4>{label}</h4>
             </div>
         </div>
     )
