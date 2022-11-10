@@ -13,48 +13,28 @@ function Forecasts() {
         return (
             <div className='row'>
                 <div className='row weather-card'>
-                    <div  className="col-md-3 rounded-start today-card ">
-                        {weather.time.map((t, index) => {
-                            if (index !== 0) {
-                                return <div key={index}></div>
-                            }
-                            return (
-                                <div key={index}>
-                                    <CurrentDay
-                                        time={weather.time[0]}
-                                        weatherCode={weather.weathercode[0]}
-                                        temperature2mMax={weather.temperature_2m_max[0]}
-                                        temperature2mMin={weather.temperature_2m_min[0]}
-                                    />
-                                </div>
-                            )
-                        })}
+                    <div className="col-md-3 rounded-start today-card ">
+                        <CurrentDay
+                            time={weather.time[0]}
+                            weatherCode={weather.weathercode[0]}
+                            temperature2mMax={weather.temperature_2m_max[0]}
+                            temperature2mMin={weather.temperature_2m_min[0]}
+                        />
                     </div>
                     <div className="col-md-9 rounded-end week-card pb-4 pt-3">
-                        <div>
-                            {weather.time.map((t, index) => {
-                                if (index !== 0) {
-                                    return <div key={index}></div>
-                                }
-                                return (
-                                    <div key={index}>
-                                        <Details
-                                            temperature2mMax={weather.temperature_2m_max[index]}
-                                            temperature2mMin={weather.temperature_2m_min[index]}
-                                            sunrise={weather.sunrise[index]}
-                                            sunset={weather.sunset[index]}
-                                            windspeed10mMax={weather.windspeed_10m_max[index]}
-                                        />
-                                    </div>
-                                )
-                            })}
-                        </div>
+                        <Details
+                            temperature2mMax={weather.temperature_2m_max[0]}
+                            temperature2mMin={weather.temperature_2m_min[0]}
+                            sunrise={weather.sunrise[0]}
+                            sunset={weather.sunset[0]}
+                            windspeed10mMax={weather.windspeed_10m_max[0]}
+                        />
                         <hr />
                         <div className="elements rounded p-2" >
                             <div className="row">
                                 {weather.time.map((t, index) => {
                                     if (index === 0) {
-                                        return <div key={index}></div>
+                                        return null
                                     }
                                     return (
                                         <div key={index} className="col-md-2 d-flex flex-row justify-content-center">
