@@ -1,19 +1,21 @@
 import React from 'react'
-
+// helpers
+import getLocaleHours from '../helpers/get-locale-hours-minutes';
+// CSS
 import '../App.css'
 
-
-function Details({temperature2mMax, temperature2mMin, sunrise, sunset, windspeed10mMax }) {
-    // const day = getDayName(time, "en-US");
-
+function Details({ temperature2mMax, temperature2mMin, sunrise, sunset, windspeed10mMax }) {
+    
     const temperatureMax = JSON.stringify(temperature2mMax);
     const temperatureMin = JSON.stringify(temperature2mMin);
-    const sunRise = JSON.stringify(sunrise);
-    const sunSet = JSON.stringify(sunset);
+
+    let sunRise = getLocaleHours(sunrise, "en-US");
+    let sunSet = getLocaleHours(sunset, "en-US");
+
     const maxWindSpeed = (windspeed10mMax).toFixed()
 
     return (
-        <div  className='details'>
+        <div className='details'>
             <h4>MAX TEMP
                 <span className='float-end'>{temperatureMax}</span>
             </h4>
