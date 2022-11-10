@@ -45,12 +45,6 @@
   background: -webkit-linear-gradient(90deg, #182634 0%, #182634 100%);
   filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#294B69", endColorstr="#2D77C6", GradientType=1);
   color: whitesmoke;
-  font-weight: bolder;
-  font-family: 'Copperplate', monospace;
-}
-
-.details {
-  font-weight: bold;
 }
 
 .elements {
