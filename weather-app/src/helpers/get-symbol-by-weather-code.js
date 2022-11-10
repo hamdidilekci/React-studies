@@ -30,18 +30,34 @@ const getSymbolByWeatherCode = (weatherCode) => {
         stormy: [95, 96, 99],
         sunny: [0, 1],
     };
+
+    const labels = {
+        cloudy: 'Cloudy',
+        cloudySun: 'Partly cloudy',
+        foggy: 'Foggy',
+        rainy: 'Rainy',
+        snowy: 'Snowy',
+        stormy: 'Stormy',
+        sunny: 'Sunny',
+    };
     
     function getNameOfCode(object, value) {
         return Object.keys(object).find(key => object[key]?.includes(value));
     };
     
-    let symbol;
     let symbolOfDay = getNameOfCode(codes, weatherCode);
+
+    let symbol;
     if (symbols.hasOwnProperty(symbolOfDay)) {
         symbol = symbols[symbolOfDay];
     };
 
-    return symbol;
+    let label;
+    if (labels.hasOwnProperty(symbolOfDay)) {
+        label = labels[symbolOfDay];
+    };
+
+    return [symbol, label];
 }
 
 export default getSymbolByWeatherCode;
