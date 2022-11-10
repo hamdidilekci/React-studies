@@ -13,7 +13,7 @@ function Forecasts() {
         return (
             <div className='row'>
                 <div className='row weather-card'>
-                    <div className="col-md-3 rounded-start today-card ">
+                    <div className="col-md-3 rounded-start today-card">
                         <CurrentDay
                             time={weather.time[0]}
                             weatherCode={weather.weathercode[0]}
@@ -23,8 +23,8 @@ function Forecasts() {
                     </div>
                     <div className="col-md-9 rounded-end week-card pb-4 pt-3">
                         <Details
-                            temperature2mMax={weather.temperature_2m_max[0]}
-                            temperature2mMin={weather.temperature_2m_min[0]}
+                            temperature2mMax={parseInt(weather.temperature_2m_max[0])}
+                            temperature2mMin={parseInt(weather.temperature_2m_min[0])}
                             sunrise={weather.sunrise[0]}
                             sunset={weather.sunset[0]}
                             windspeed10mMax={weather.windspeed_10m_max[0]}
