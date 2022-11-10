@@ -4,7 +4,7 @@ import axios from 'axios';
 const WeatherContext = createContext();
 
 export const WeatherProvider = ({children}) => {
-    const [location, setLocation] = useState({latitude : 40.99, longitude: 20.99});
+    const [location, setLocation] = useState({latitude : 38.03, longitude: 38.22});
 
     const [weather, setWeather] = useState({state : 'loading...'});
 
