@@ -1,10 +1,20 @@
+import './list-item.css'
 
 function ListItem({ setListItem, listItems }) {
 	
-	const onItemClick = (i, e, from) => {
+	const onCheckboxClick = (i) => {
 		setListItem(prevState => prevState.map((el, index) => {
 			if (index === i) {
 				return {...el, isCompleted:!el.isCompleted}
+			}
+			return el;
+		}));
+	}
+
+	const onInputClick = (i) => {
+		setListItem(prevState => prevState.map((el, index) => {
+			if (index === i) {
+				return {...el, isEditing:!el.isEditing}
 			}
 			return el;
 		}));
@@ -29,21 +39,24 @@ function ListItem({ setListItem, listItems }) {
 			<ul className="todo-list">
 				{listItems.map((listItem, i) => (
 					<li key={i} className='d-flex justify-content-between'>
-						<div className="d-flex justify-content-center">
+						<div>
 							<input 
-								onClick={(e) => onItemClick(i, e, 'label')} 
+								onClick={(e) => onCheckboxClick(i)} 
 								type="checkbox"
+								checked={listItem.isCompleted === true}
+								hidden={listItem.isVisible === false}
+								className='toggle'
 							/>
 						</div>
 						<div>
 							<input
 								onChange={(e) => onChangeItems(i, e)}
 								value={listItem.name} 
-								className={
-									(listItem.isCompleted ? 'view completed' : 'view')
-									+ ' ' + 
-									(listItem.isVisible ? '' : 'hidden')
-								}
+								className={(listItem.isCompleted ? 'view completed' : 'view')}
+								hidden={listItem.isVisible === false}
+								autoFocus
+								onClick={(e) => onInputClick(i)}
+								style={listItem.isEditing ? {borderWidth: '2px'} : {borderWidth: '0px'}}
 							/>
 						</div>	
 						<div>
