@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './list-footer.css'
 
 function ListFooter({ setListItem, listItems }) {
 
@@ -42,7 +43,7 @@ function ListFooter({ setListItem, listItems }) {
 	}
 
 	return (
-		<footer className="footer">
+		<footer className="footer" hidden={listItems.length === 0}>
 			<span className="todo-count">
 				<strong> {listItems.length} </strong>
 				items left
