@@ -1,6 +1,5 @@
 import { useState } from 'react'
-
-// import './list-header.css'
+import './list-header.css'
 
 function ListHeader({ setListItem, listItems }) {
 
@@ -15,14 +14,14 @@ function ListHeader({ setListItem, listItems }) {
 		e.preventDefault();
 		if (input === "") return false;
 
-		const value = {name:input, isCompleted: false, isVisible: true}
+		const value = {name:input, isCompleted: false, isVisible: true, isEditing: false}
 
 		setListItem([...listItems, value]);
 		setInput(initialInputValue);
 	}
 
 	return (
-		<header className="header">
+		<header className='header'>
 			<h1>todos</h1>
 			<form onSubmit={onSubmit}>
 				<input
