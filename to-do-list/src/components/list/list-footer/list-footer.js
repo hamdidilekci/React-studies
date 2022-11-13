@@ -3,25 +3,25 @@ import './list-footer.css'
 
 function ListFooter({ setListItem, listItems }) {
 
-	const [selected, setSelected] = useState({id:'all'});
-	
+	const [selected, setSelected] = useState({ id: 'all' });
+
 	const showAll = () => {
 		setListItem(prevState => prevState.map((el) => {
 			el.isVisible = true
 			return el
 		}));
 
-		setSelected({id: 'all'});
-	}
-	
+		setSelected({ id: 'all' });
+	};
+
 	const showActive = () => {
 		setListItem(prevState => prevState.map((el) => {
 			el.isCompleted ? el.isVisible = false : el.isVisible = true
 			return el
 		}));
 
-		setSelected({id: 'active'});
-	}
+		setSelected({ id: 'active' });
+	};
 
 	const showCompleted = () => {
 		setListItem(prevState => prevState.map((el) => {
@@ -29,18 +29,32 @@ function ListFooter({ setListItem, listItems }) {
 			return el
 		}));
 
-		setSelected({id: 'completed'});
-	}
+		setSelected({ id: 'completed' });
+	};
 
 	const onClickAll = () => {
-		setListItem(prevState => prevState.map((el, index) => {
-			return {...el, isCompleted: true}
-		}));
-	}
+		const found = listItems.every(el => el.isCompleted === true)
+		if (found) {
+			setListItem(
+				listItems.map((el) => {
+					el.isCompleted = false
+					return el;
+				})
+			)
+		}
+		else {
+			setListItem(
+				listItems.map((el) => {
+					el.isCompleted = true
+					return el;
+				})
+			)
+		}
+	};
 
 	const onDeleteAllCompleted = () => {
 		setListItem(prevState => prevState.filter(el => !el.isCompleted));
-	}
+	};
 
 	return (
 		<footer className="footer" hidden={listItems.length === 0}>
@@ -68,6 +82,6 @@ function ListFooter({ setListItem, listItems }) {
 			</ul>
 		</footer>
 	)
-}
+};
 
 export default ListFooter;
