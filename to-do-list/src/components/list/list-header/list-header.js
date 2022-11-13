@@ -1,7 +1,9 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './list-header.css'
 
 function ListHeader({ setListItem, listItems }) {
+	// Autofocus to input when page first render
+	const ref = useRef(null);
 
 	const initialInputValue = ""
 	const [input, setInput] = useState(initialInputValue);
@@ -30,6 +32,7 @@ function ListHeader({ setListItem, listItems }) {
 					className="new-todo"
 					placeholder="What needs to be done?"
 					autoFocus
+					ref={ref}
 				/>
 			</form>
 		</header>
