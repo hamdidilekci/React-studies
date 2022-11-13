@@ -1,7 +1,7 @@
 import './list-item.css'
 
 function ListItem({ setListItem, listItems }) {
-
+	// set item to completed
 	const onCheckboxClick = (i) => {
 		setListItem(prevState => prevState.map((el, index) => {
 			if (index === i) {
@@ -10,7 +10,7 @@ function ListItem({ setListItem, listItems }) {
 			return el;
 		}));
 	}
-
+	// display border when click
 	const focusFunc = (i) => {
 		setListItem(prevState => prevState.map((el, index) => {
 			if (index === i) {
@@ -19,13 +19,13 @@ function ListItem({ setListItem, listItems }) {
 			return { ...el, isEditing: false };
 		}));
 	}
-
+	// vanish border when click
 	const blurFunc = (i) => {
 		setListItem(prevState => prevState.map((el, index) => {
 			return { ...el, isEditing: false };
 		}));
 	}
-
+	// allow to change input value
 	const onChangeItems = (i, e) => {
 		setListItem(prevState => prevState.map((el, index) => {
 			if (index === i) {
@@ -34,7 +34,7 @@ function ListItem({ setListItem, listItems }) {
 			return el;
 		}));
 	}
-
+	// delete items
 	const onDelete = (e) => {
 		// eslint-disable-next-line eqeqeq
 		setListItem(prevState => prevState.filter((el, index) => index != e.target.id));
