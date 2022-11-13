@@ -31,7 +31,7 @@ function ListFooter({ setListItem, listItems }) {
 
 		setSelected({ id: 'completed' });
 	};
-
+	// set all items to completed, if all items completed set them to not completed
 	const onClickAll = () => {
 		const found = listItems.every(el => el.isCompleted === true)
 		if (found) {
