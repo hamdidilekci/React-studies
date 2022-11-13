@@ -14,6 +14,12 @@ button {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.list-item {
+	margin-top: 0.25rem;
+	margin-left: 3rem;
+	width: 25rem;
+}
+
 :focus {
 	outline: 0;
 }
@@ -36,7 +42,7 @@ button {
 }
 
 input::before {
-	outline: none
+	outline: none;
 }
 
 .todo-list li {
