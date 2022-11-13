@@ -44,8 +44,8 @@ function ListItem({ setListItem, listItems }) {
 		<section className="main" >
 			<ul className="todo-list">
 				{listItems.map((listItem, i) => (
-					<li key={i} className='d-flex justify-content-between'>
-						<div>
+					<li key={i} className='d-flex'>
+						<div className='float-start'>
 							<input
 								onClick={(e) => onCheckboxClick(i)}
 								type="checkbox"
@@ -54,7 +54,7 @@ function ListItem({ setListItem, listItems }) {
 								className='toggle'
 							/>
 						</div>
-						<div>
+						<div className='list-item'>
 							<input
 								onChange={(e) => onChangeItems(i, e)}
 								value={listItem.name}
@@ -64,7 +64,7 @@ function ListItem({ setListItem, listItems }) {
 								onBlur={(e) => blurFunc(i, e)}
 							/>
 						</div>
-						<div>
+						<div className='float-end'>
 							<button
 								id={i} onClick={onDelete}
 								className="destroy m-0">
