@@ -1,19 +1,27 @@
 import './App.css';
 
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Palette from './components/Palette';
 
-import { init } from './socketApi'
+import { init, subscribe } from './socketApi'
 
 function App() {
-  useEffect( () => {
-    init();
+  const [activeColor, setActiveColor] = useState('#282c34');
+
+  useEffect(() => {
+    init();           // run socket.io
+    
+    subscribe((color) => {  
+      setActiveColor(color);    // set choosen color to activeColor 
+    });
   }, [])
+
   return (
-    <div className='App'>
-      <Palette />
+    <div className='App' style={{backgroundColor: activeColor}}>
+      <h1>{activeColor}</h1>
+      <Palette activeColor={activeColor}/>
     </div>
   )
 }
 
-export default App
+export default App;
