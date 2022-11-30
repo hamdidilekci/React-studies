@@ -1,18 +1,10 @@
-Emoji Search
+Write the test code that will check the following steps:
 ---
-
-Created with *create-react-app*. See the [full create-react-app guide](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
-
-
-
-Install
+	- Renders the Header component,
 ---
-
-`npm install`
-
-
-
-Usage
+	- The emoji list is rendered successfully when the app is first opened,
 ---
-
-`npm start`
+	- The emoji list is re-rendered according to that filter,
+---
+  - When clicking any emoji on the list, the relevant emoji is copied.
+---
